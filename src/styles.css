@@ -1,1 +1,99 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: blanchedalmond;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn a {
+    outline: none;
+    text-decoration: none;
+}
+
+.btn a:link {
+    color: #000;
+}
+
+a:visited {
+    color: #000;
+}
+
+.wrapper {
+    margin-top: 50px;
+    display: grid;
+    width: 80%;
+    grid-template-areas: 
+    'container';
+    grid-template-columns: 1fr;
+}
+
+.container {
+    grid-area: container;
+    background: transparent;
+
+}
+
+.crop {
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.crop img {
+    overflow: hidden;
+    z-index: 2;
+}
+
+.main {
+    position: absolute;
+    bottom: 50px;
+    left: 300px;
+}
+
+.zoom {
+    position: relative;
+    animation-name: zoomIn;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+}
+
+.rotate {
+    animation: rotation 2s 1 ease-in-out;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        left: 0px;
+        top: 0px;
+        height: 400px;
+
+    }
+
+    50% {
+        left: 0px;
+        top: 0px;
+        height: 600px;
+    }
+
+    100% {
+        left: 0px;
+        top: 0px;
+        height: 400px;
+    }
+}

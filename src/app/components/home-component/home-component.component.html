@@ -1,0 +1,55 @@
+<div class="wrapper">
+    <div id="photo" class="container">
+        <label for="file-input">
+            <div class="crop">
+                <img [src]="url" [style.marginLeft.px]="-cropLeft" [style.marginRight.px]="-cropRight"
+                    [style.marginTop.px]="-cropTop" [style.marginBottom.px]="-cropBottom"
+                    [ngClass]="{'zoom': zoom, 'rotate': rotation}" alt="" height="400" />
+            </div>
+        </label>
+    </div>
+
+    <div class="main">
+        <div class="btn">
+            <input id="file-input" type="file" (change)="onselectFile($event)"><br>
+        </div>
+
+        <div class="select btn">
+            <form>
+                <select [(ngModel)]="selectedOption" name="animation type" id="select_type"
+                    (ngModelChange)="selectedOpt(selectedOption)">
+                    <option *ngFor="let item of options" [value]="item.id">{{item.name}}</option>
+                </select>
+            </form>
+        </div>
+        <div>
+            <form>
+                <label>crop L</label>
+                <input name="amount" [(ngModel)]="cropLeft" type="range" class="form-range" min="0" max="400">
+            </form>
+        </div>
+        <div>
+            <form>
+                <label>crop R</label>
+                <input name="amount" [(ngModel)]="cropRight" type="range" class="form-range" min="0" max="400">
+            </form>
+        </div>
+        <div>
+            <form>
+                <label>crop T</label>
+                <input name="amount" [(ngModel)]="cropTop" type="range" class="form-range" min="0" max="400">
+            </form>
+        </div>
+        <div>
+            <form>
+                <label>crop B</label>
+                <input name="amount" [(ngModel)]="cropBottom" type="range" class="form-range" min="0" max="400">
+            </form>
+        </div>
+        <div>
+            <button class="btn"><a
+                    onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)"
+                    href="#" download="page.html">Download HTML</a></button>
+        </div>
+    </div>
+</div>
